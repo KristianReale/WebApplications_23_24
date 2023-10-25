@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elenco Ristoranti</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>Nome</th>
+            <th>Descrizione</th>
+            <th>Ubicazione</th>
+        </tr>
+        <tr>
+            <td>Ristorante/Pizzeria le Casette di Zio Santino</td>
+            <td>In questo ristorante si cucina un po' di tutto ed offre anche ampie varietà di pizze</td>
+            <td>Cosenza</td>
+        </tr>
+        <tr>
+            <td>Osteria degli Hernandez</td>
+            <td>Cucina tipica a base di tartufo. Possibilità di gustare vari tipi di vino</td>
+            <td>Cosenza</td>
+        </tr>
+        <tr>
+            <td>Pizzeria Iamme Ià</td>
+            <td>Pizza napoletana di eccellenza, varie varietà di pizza e
+                    possibilità di mangiare la pizza fritta</td>
+            <td>Rende</td>
+        </tr>
+        <tr>
+            <td>Ristorante Nessuno</td>
+            <td>Cucina locale ottima con prodotti freschi e di qualità</td>
+            <td>Castrolibero</td>
+        </tr>
+    </table>
+    <div>
+        <h3>Aggiunti un nuovo ristorante</h3>
+        <form method="post" action="../addRistorante">
+            <label for="nome_rist">Nome Ristorante:</label>
+            <input id="nome_rist" type="text" name="nome_ristorante" />
+            <br/>
+            <label for="desc_rist">Descrizione Ristorante:</label>
+            <textarea id="desc_rist" placeholder="Inserisci la descrizione"
+                      name="descrizione_ristorante">
+            </textarea>
+            <br/>
+            <label for="ub_ristorante">Descrizione Ristorante:</label>
+            <select id="ub_ristorante" name="ubicazione_ristorante">
+                <option value="1">Rende</option>
+                <option value="2" selected>Cosenza</option>
+                <option value="3">Castrolibero</option>
+            </select>
+            <br/>
+            <input type="submit" />
+            <input type="reset" />
+        </form>
+    </div>
+</body>
+</html>
