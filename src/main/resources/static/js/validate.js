@@ -27,6 +27,8 @@ function aggiungiRistorante(){
     if (validateRistorante(nomeRist, descRist, ubRist)){
         let newTr = document.createElement("tr");
 
+        let newTdChk = document.createElement("td");
+        let newTdId = document.createElement("td");
         let newTdNome = document.createElement("td");
         let newTdDescrizione = document.createElement("td");
         let newTdUbicazione = document.createElement("td");
@@ -35,6 +37,8 @@ function aggiungiRistorante(){
         let contentDescrizione = document.createTextNode(descRist);
         let contentUbicazione = document.createTextNode(ubRist);
 
+        newTr.appendChild(newTdChk);
+        newTr.appendChild(newTdId);
         newTr.appendChild(newTdNome);
         newTr.appendChild(newTdDescrizione);
         newTr.appendChild(newTdUbicazione);
@@ -50,6 +54,15 @@ function aggiungiRistorante(){
     }else{
         alert("Mancano dei campi");
     }
+}
+
+function rimuoviRistorante(){
+    var ristorantiSelezionati = document.querySelectorAll(".ristoranteSelezionato:checked");
+    ristorantiSelezionati.forEach(function (elementSelected){
+        // for each elementSelected in ristorantiSelezionati:
+        var valueSel = elementSelected.getAttribute("value");
+        alert(valueSel);
+    });
 }
 function validateRistorante(nome, descrizione, ubicazione){
     var validationOK = true;

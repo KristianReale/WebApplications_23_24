@@ -8,32 +8,43 @@
 <body>
     <table border="1">
         <tr>
+            <th></th>
+            <th>Id</th>
             <th>Nome</th>
             <th>Descrizione</th>
             <th>Ubicazione</th>
         </tr>
         <tr>
+            <td><input type="checkbox" class="ristoranteSelezionato" value="1" /></td>
+            <td>1</td>
             <td>Ristorante/Pizzeria le Casette di Zio Santino</td>
             <td>In questo ristorante si cucina un po' di tutto ed offre anche ampie varietà di pizze</td>
             <td>Cosenza</td>
         </tr>
         <tr>
+            <td><input type="checkbox" class="ristoranteSelezionato" value="2" /></td>
+            <td>2</td>
             <td>Osteria degli Hernandez</td>
             <td>Cucina tipica a base di tartufo. Possibilità di gustare vari tipi di vino</td>
             <td>Cosenza</td>
         </tr>
         <tr>
+            <td><input type="checkbox" class="ristoranteSelezionato" value="3" /></td>
+            <td>3</td>
             <td>Pizzeria Iamme Ià</td>
             <td>Pizza napoletana di eccellenza, varie varietà di pizza e
                     possibilità di mangiare la pizza fritta</td>
             <td>Rende</td>
         </tr>
         <tr>
+            <td><input type="checkbox" class="ristoranteSelezionato" value="4" /></td>
+            <td>4</td>
             <td>Ristorante Nessuno</td>
             <td>Cucina locale ottima con prodotti freschi e di qualità</td>
             <td>Castrolibero</td>
         </tr>
     </table>
+    <input type="button" value="Cancella" onclick="rimuoviRistorante()" />
     <div>
         <h3>Aggiunti un nuovo ristorante</h3>
         <form method="post" action="../addRistorante">
