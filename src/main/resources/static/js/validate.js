@@ -33,7 +33,7 @@ function aggiungiRistorante(){
 
         let contentNome = document.createTextNode(nomeRist);
         let contentDescrizione = document.createTextNode(descRist);
-        let contentUbicazione = document.createTextNode(contentDescrizione);
+        let contentUbicazione = document.createTextNode(ubRist);
 
         newTr.appendChild(newTdNome);
         newTr.appendChild(newTdDescrizione);
@@ -43,8 +43,10 @@ function aggiungiRistorante(){
         newTdDescrizione.appendChild(contentDescrizione);
         newTdUbicazione.appendChild(contentUbicazione);
 
+        newTr.style = "font-weight: bold";
+
         let tableElement = document.getElementsByTagName("table")[0];
-        tableElement.appendChild(newTrjjj);
+        tableElement.appendChild(newTr);
     }else{
         alert("Mancano dei campi");
     }
