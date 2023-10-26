@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Elenco Ristoranti</title>
+    <script type="text/javascript" src="../js/validate.js"></script>
 </head>
 <body>
     <table border="1">
@@ -44,13 +45,14 @@
                       name="descrizione_ristorante">
             </textarea>
             <br/>
-            <label for="ub_ristorante">Descrizione Ristorante:</label>
+            <label for="ub_ristorante">Ubicazione Ristorante:</label>
             <select id="ub_ristorante" name="ubicazione_ristorante">
-                <option value="1">Rende</option>
-                <option value="2" selected>Cosenza</option>
-                <option value="3">Castrolibero</option>
+                <option value="Rende">Rende</option>
+                <option value="Cosenza" selected>Cosenza</option>
+                <option value="Castrolibero">Castrolibero</option>
             </select>
             <br/>
+            <input type="button" value="Verifica Dati" onclick="verificaRistorante();" />
             <input type="submit" />
             <input type="reset" />
         </form>
