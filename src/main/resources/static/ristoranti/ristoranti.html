@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <title>Elenco Ristoranti</title>
     <script type="text/javascript" src="../js/validate.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 </head>
 <body>
-    <table border="1">
+    <table class="table table-striped">
+        <thead>
         <tr>
             <th></th>
             <th>Id</th>
@@ -14,37 +21,40 @@
             <th>Descrizione</th>
             <th>Ubicazione</th>
         </tr>
-        <tr>
-            <td><input type="checkbox" class="ristoranteSelezionato" value="1" /></td>
-            <td>1</td>
-            <td>Ristorante/Pizzeria le Casette di Zio Santino</td>
-            <td>In questo ristorante si cucina un po' di tutto ed offre anche ampie varietà di pizze</td>
-            <td>Cosenza</td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" class="ristoranteSelezionato" value="2" /></td>
-            <td>2</td>
-            <td>Osteria degli Hernandez</td>
-            <td>Cucina tipica a base di tartufo. Possibilità di gustare vari tipi di vino</td>
-            <td>Cosenza</td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" class="ristoranteSelezionato" value="3" /></td>
-            <td>3</td>
-            <td>Pizzeria Iamme Ià</td>
-            <td>Pizza napoletana di eccellenza, varie varietà di pizza e
-                    possibilità di mangiare la pizza fritta</td>
-            <td>Rende</td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" class="ristoranteSelezionato" value="4" /></td>
-            <td>4</td>
-            <td>Ristorante Nessuno</td>
-            <td>Cucina locale ottima con prodotti freschi e di qualità</td>
-            <td>Castrolibero</td>
-        </tr>
+        </thead>
+        <tbody>
+            <tr id="r1">
+                <td><input type="checkbox" class="ristoranteSelezionato" value="1" /></td>
+                <td>1</td>
+                <td>Ristorante/Pizzeria le Casette di Zio Santino</td>
+                <td>In questo ristorante si cucina un po' di tutto ed offre anche ampie varietà di pizze</td>
+                <td>Cosenza</td>
+            </tr>
+            <tr id="r2">
+                <td><input type="checkbox" class="ristoranteSelezionato" value="2" /></td>
+                <td>2</td>
+                <td>Osteria degli Hernandez</td>
+                <td>Cucina tipica a base di tartufo. Possibilità di gustare vari tipi di vino</td>
+                <td>Cosenza</td>
+            </tr>
+            <tr id="r3">
+                <td><input type="checkbox" class="ristoranteSelezionato" value="3" /></td>
+                <td>3</td>
+                <td>Pizzeria Iamme Ià</td>
+                <td>Pizza napoletana di eccellenza, varie varietà di pizza e
+                        possibilità di mangiare la pizza fritta</td>
+                <td>Rende</td>
+            </tr>
+            <tr id="r4">
+                <td><input type="checkbox" class="ristoranteSelezionato" value="4" /></td>
+                <td>4</td>
+                <td>Ristorante Nessuno</td>
+                <td>Cucina locale ottima con prodotti freschi e di qualità</td>
+                <td>Castrolibero</td>
+            </tr>
+        </tbody>
     </table>
-    <input type="button" value="Cancella" onclick="rimuoviRistorante()" />
+    <input class="btn btn-danger" type="button" value="Cancella" onclick="rimuoviRistorante()" />
     <div>
         <h3>Aggiunti un nuovo ristorante</h3>
         <form method="post" action="../addRistorante">
@@ -64,10 +74,10 @@
                 <option value="Castrolibero">Castrolibero</option>
             </select>
             <br/>
-            <input type="button" value="Verifica Dati" onclick="verificaRistorante();" />
-            <input type="button" value="Aggiungi Ristorante alla lista" onclick="aggiungiRistorante();" />
+            <input type="button" class="btn btn-warning" value="Verifica Dati" onclick="verificaRistorante();" />
+            <input type="button" class="btn btn-success" value="Aggiungi Ristorante alla lista" onclick="aggiungiRistorante();" />
             <input type="submit" />
-            <input type="reset" />
+            <input type="reset" class="btn btn-danger" />
         </form>
     </div>
 </body>

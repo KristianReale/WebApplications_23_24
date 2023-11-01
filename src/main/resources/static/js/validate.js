@@ -61,7 +61,9 @@ function rimuoviRistorante(){
     ristorantiSelezionati.forEach(function (elementSelected){
         // for each elementSelected in ristorantiSelezionati:
         var valueSel = elementSelected.getAttribute("value");
-        alert(valueSel);
+
+        var riga = document.querySelector("tr#r" + valueSel);
+        riga.style = "text-decoration: line-through";
     });
 }
 function validateRistorante(nome, descrizione, ubicazione){
