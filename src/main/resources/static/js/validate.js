@@ -92,6 +92,9 @@ function aggiungiRistorante(){
     var ubRist = ubRistElement.value.trim();
 
     if (validateRistorante(nomeRist, descRist, ubRist)){
+        nuovoRistorante = new Ristorante(nomeRist, descRist, ubRist);
+        ristorantiDaAggiungere.push(nuovoRistorante);
+
         let newTr = document.createElement("tr");
 
         let newTdChk = document.createElement("td");
@@ -103,9 +106,6 @@ function aggiungiRistorante(){
         let contentNome = document.createTextNode(nomeRist);
         let contentDescrizione = document.createTextNode(descRist);
         let contentUbicazione = document.createTextNode(ubRist);
-
-        nuovoRistorante = new Ristorante(contentNome, contentDescrizione, contentUbicazione);
-        ristorantiDaAggiungere.push(nuovoRistorante);
 
         newTr.appendChild(newTdChk);
         newTr.appendChild(newTdId);
@@ -141,6 +141,7 @@ function rimuoviRistorante(){
 
 function salva(){
     var ristJson = JSON.stringify(ristorantiDaAggiungere);
+    console.log(ristJson);
     $.ajax({
         url: "addRistorante",
         type: "POST",

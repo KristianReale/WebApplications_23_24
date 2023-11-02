@@ -5,6 +5,8 @@ public class Ristorante {
     String descrizione;
     String ubicazione;
 
+    public Ristorante(){}
+
     public Ristorante(String nome, String descrizione, String ubicazione){
         this.nome = nome;
         this.descrizione = descrizione;
