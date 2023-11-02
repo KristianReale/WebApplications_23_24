@@ -1,3 +1,17 @@
+daCancellare = new Array();
+daAggiungere = new Array();
+
+class Ristorante{
+    constructor(nome, descrizione, ubicazione) {
+        this.nome = nome;
+        this.descrizione = descrizione;
+        this.ubicazione = ubicazione;
+    }
+    getNome(){
+        return this.nome;
+    }
+}
+
 window.addEventListener("load", function() {
     var butRimuovi = document.querySelector("#btn_cancella");
     butRimuovi.addEventListener("click", function () {
@@ -81,6 +95,8 @@ function rimuoviRistorante(){
 
         var riga = document.querySelector("tr#r" + valueSel);
         riga.style = "text-decoration: line-through";
+
+        daCancellare.push(valueSel);
     });
 }
 function validateRistorante(nome, descrizione, ubicazione){
