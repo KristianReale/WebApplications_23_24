@@ -18,6 +18,11 @@ public class ServiziRest {
     public String aggiungiRistorante(ArrayList<Ristorante> ristoranti){
         //Salva ristoranti nel DB
         //Se è andato tutto bene
+        for (Ristorante r : ristoranti) {
+            System.out.println(r.getNome());
+            System.out.println(r.getDescrizione());
+            System.out.println(r.getUbicazione());
+        }
         return "OK";
         //altrimenti
         // return "Errore: ....";

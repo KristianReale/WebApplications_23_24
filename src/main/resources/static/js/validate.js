@@ -56,6 +56,13 @@ window.addEventListener("load", function() {
     butAggiungi.addEventListener("click", function () {
         aggiungiRistorante();
     });
+
+    var butSalva = document.querySelector("#btn_salva");
+    butSalva.addEventListener("click", function () {
+        salva();
+    });
+
+
 });
 
 function verificaRistorante(){
@@ -133,11 +140,12 @@ function rimuoviRistorante(){
 }
 
 function salva(){
-    //ristorantiDaAggiungere
+    var ristJson = JSON.stringify(ristorantiDaAggiungere);
     $.ajax({
         url: "addRistorante",
         type: "POST",
-        data: { name: "John", location: "Boston" }
+        data: ristJson,
+        contentType: "application/json"
     });
 }
 
