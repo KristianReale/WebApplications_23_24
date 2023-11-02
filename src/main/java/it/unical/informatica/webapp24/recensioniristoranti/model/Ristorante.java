@@ -35,5 +35,10 @@ public class Ristorante {
         this.ubicazione = ubicazione;
     }
 
+    public static void main(String[] args) {
+        Ristorante r1 = new Ristorante("Nome", "Si mangia pizza", "Cosenza");
+        r1.setNome("Girone dei golosi");
+    }
+
 
 }
