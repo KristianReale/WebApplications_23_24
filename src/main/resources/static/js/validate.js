@@ -146,7 +146,18 @@ function salva(){
         url: "addRistorante",
         type: "POST",
         data: ristJson,
-        contentType: "application/json"
+        contentType: "application/json",
+        success: function(risposta) {
+            //alert(risposta);
+            if (risposta == "OK") {
+                //alert("SI");
+                let tutteLeRighe = document.querySelectorAll("tr");
+                tutteLeRighe.forEach(function (riga) {
+                    riga.style.removeProperty("font-weight");
+                    }
+                );
+            }
+        }
     });
 }
 
