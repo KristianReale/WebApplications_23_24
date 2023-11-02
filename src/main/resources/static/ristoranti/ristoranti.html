@@ -54,7 +54,10 @@
             </tr>
         </tbody>
     </table>
+    <!--
     <input class="btn btn-danger" type="button" value="Cancella" onclick="rimuoviRistorante()" />
+    -->
+    <input id="btn_cancella" class="btn btn-danger" type="button" value="Cancella" />
     <div>
         <h3>Aggiunti un nuovo ristorante</h3>
         <form method="post" action="../addRistorante">
@@ -74,11 +77,18 @@
                 <option value="Castrolibero">Castrolibero</option>
             </select>
             <br/>
+<!--
             <input type="button" class="btn btn-warning" value="Verifica Dati" onclick="verificaRistorante();" />
             <input type="button" class="btn btn-success" value="Aggiungi Ristorante alla lista" onclick="aggiungiRistorante();" />
+-->
+            <input id="btn_verifica" type="button" class="btn btn-warning" value="Verifica Dati" />
+            <input id="btn_aggiungi" type="button" class="btn btn-success" value="Aggiungi Ristorante alla lista" />
+
+
             <input type="submit" />
             <input type="reset" class="btn btn-danger" />
         </form>
     </div>
+
 </body>
 </html>
