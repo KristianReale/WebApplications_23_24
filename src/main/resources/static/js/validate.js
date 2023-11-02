@@ -1,6 +1,35 @@
 ristorantiDaCancellare = new Array();
 ristorantiDaAggiungere = new Array();
 
+/*
+XML
+<ristorante>
+    <nome>
+        Gironi ristopasti
+    </nome>
+    <descrizione>
+        Pizze
+    </descrizione>
+    <ubicazione>
+        Cosenza
+    </ubicazione>
+</ristorante>
+*/
+/*
+  [
+   {
+        "nome": "Gironi ristopasti",
+        "descrizione": "Pizze",
+        "ubicazione": "Cosenza"
+   },
+   {
+        "nome": "Gironi ristopasti secondi",
+        "descrizione": "Pizze Gourmet",
+        "ubicazione": "Rende"
+   }
+   ]
+ */
+
 class Ristorante{
     constructor(nome, descrizione, ubicazione) {
         this.nome = nome;
@@ -68,7 +97,8 @@ function aggiungiRistorante(){
         let contentDescrizione = document.createTextNode(descRist);
         let contentUbicazione = document.createTextNode(ubRist);
 
-        //nuovoRistorante
+        nuovoRistorante = new Ristorante(contentNome, contentDescrizione, contentUbicazione);
+        ristorantiDaAggiungere.push(nuovoRistorante);
 
         newTr.appendChild(newTdChk);
         newTr.appendChild(newTdId);
@@ -101,6 +131,16 @@ function rimuoviRistorante(){
         ristorantiDaCancellare.push(valueSel);
     });
 }
+
+function salva(){
+    //ristorantiDaAggiungere
+    $.ajax({
+        url: "addRistorante",
+        type: "POST",
+        data: { name: "John", location: "Boston" }
+    });
+}
+
 function validateRistorante(nome, descrizione, ubicazione){
     var validationOK = true;
     if (nome == ""){
