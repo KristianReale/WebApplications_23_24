@@ -1,5 +1,5 @@
-daCancellare = new Array();
-daAggiungere = new Array();
+ristorantiDaCancellare = new Array();
+ristorantiDaAggiungere = new Array();
 
 class Ristorante{
     constructor(nome, descrizione, ubicazione) {
@@ -68,6 +68,8 @@ function aggiungiRistorante(){
         let contentDescrizione = document.createTextNode(descRist);
         let contentUbicazione = document.createTextNode(ubRist);
 
+        //nuovoRistorante
+
         newTr.appendChild(newTdChk);
         newTr.appendChild(newTdId);
         newTr.appendChild(newTdNome);
@@ -96,7 +98,7 @@ function rimuoviRistorante(){
         var riga = document.querySelector("tr#r" + valueSel);
         riga.style = "text-decoration: line-through";
 
-        daCancellare.push(valueSel);
+        ristorantiDaCancellare.push(valueSel);
     });
 }
 function validateRistorante(nome, descrizione, ubicazione){
