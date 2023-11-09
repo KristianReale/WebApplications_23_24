@@ -1,6 +1,7 @@
 package it.unical.informatica.webapp24.recensioniristoranti.persistenza;
 
 import it.unical.informatica.webapp24.recensioniristoranti.persistenza.dao.PiattoDao;
+import it.unical.informatica.webapp24.recensioniristoranti.persistenza.dao.postgres.PiattoDaoPostgres;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -33,7 +34,7 @@ public class DBManager {
     }
 
     public PiattoDao getPiattoDao(){
-        return null;
+        return new PiattoDaoPostgres(getConnection());
     }
 
     /*
