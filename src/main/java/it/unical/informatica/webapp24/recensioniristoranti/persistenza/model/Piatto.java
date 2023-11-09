@@ -3,10 +3,10 @@ package it.unical.informatica.webapp24.recensioniristoranti.persistenza.model;
 import java.util.List;
 
 public class Piatto {
-    Long id;
-    String nome;
-    Double prezzo;
-    List<Ristorante> ristoranti;
+    private Long id;
+    private String nome;
+    private Double prezzo;
+    private List<Ristorante> ristoranti;
 
     public Long getId() {
         return id;

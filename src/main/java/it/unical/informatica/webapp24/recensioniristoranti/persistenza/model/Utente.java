@@ -3,12 +3,12 @@ package it.unical.informatica.webapp24.recensioniristoranti.persistenza.model;
 import java.util.Date;
 
 public class Utente {
-    String username;
-    String password;
-    String nome;
-    String cognome;
-    Date dataNascita;
-    String ruolo;
+    private String username;
+    private String password;
+    private String nome;
+    private String cognome;
+    private Date dataNascita;
+    private String ruolo;
 
     public String getUsername() {
         return username;

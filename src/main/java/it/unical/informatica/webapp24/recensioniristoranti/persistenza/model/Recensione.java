@@ -1,13 +1,13 @@
 package it.unical.informatica.webapp24.recensioniristoranti.persistenza.model;
 
 public class Recensione {
-    Long id;
-    String titolo;
-    String testo;
-    Integer numeroMiPiace;
-    Integer numeroNonMiPiace;
-    Ristorante ristorante;
-    Utente scrittaDa;
+    private Long id;
+    private String titolo;
+    private String testo;
+    private Integer numeroMiPiace;
+    private Integer numeroNonMiPiace;
+    private Ristorante ristorante;
+    private Utente scrittaDa;
 
     public Utente getScrittaDa() {
         return scrittaDa;
