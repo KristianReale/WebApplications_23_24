@@ -62,7 +62,7 @@ public class PiattoDaoPostgres implements PiattoDao {
                     piatto.setPrezzo(rs.getDouble("p_prezzo"));
 
                 }
-                Long ristId = rs.getLong("r_id");
+                Integer ristId = rs.getInt("r_id");
                 Ristorante r = DBManager.getInstance().getRistoranteDao().findByPrimaryKey(ristId);
                 piatto.addRistorante(r);
 
