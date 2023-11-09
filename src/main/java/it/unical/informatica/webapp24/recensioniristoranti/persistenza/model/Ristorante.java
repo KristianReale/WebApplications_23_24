@@ -1,9 +1,13 @@
-package it.unical.informatica.webapp24.recensioniristoranti.model;
+package it.unical.informatica.webapp24.recensioniristoranti.persistenza.model;
+
+import java.util.List;
 
 public class Ristorante {
+    Long id;
     String nome;
     String descrizione;
     String ubicazione;
+    List<Piatto> piatti;
 
     public Ristorante(){}
 
@@ -11,6 +15,22 @@ public class Ristorante {
         this.nome = nome;
         this.descrizione = descrizione;
         this.ubicazione = ubicazione;
+    }
+
+    public List<Piatto> getPiatti() {
+        return piatti;
+    }
+
+    public void setPiatti(List<Piatto> piatti) {
+        this.piatti = piatti;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {

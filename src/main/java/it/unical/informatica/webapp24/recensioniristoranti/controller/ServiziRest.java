@@ -1,6 +1,6 @@
 package it.unical.informatica.webapp24.recensioniristoranti.controller;
 
-import it.unical.informatica.webapp24.recensioniristoranti.model.Ristorante;
+import it.unical.informatica.webapp24.recensioniristoranti.persistenza.model.Ristorante;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
