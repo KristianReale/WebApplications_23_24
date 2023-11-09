@@ -42,9 +42,7 @@ public class DBManager {
         return null;
     }
 
-    public RistoranteDao getUtenteDao(){
-        return null;
-    }
+    public RistoranteDao getUtenteDao(){}
     /*
     public static void main(String[] args) {
         Connection con = DBManager.getInstance().getConnection();
