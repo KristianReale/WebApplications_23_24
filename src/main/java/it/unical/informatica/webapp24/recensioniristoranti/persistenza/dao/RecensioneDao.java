@@ -9,7 +9,7 @@ public interface RecensioneDao {
 
     public Recensione findByPrimaryKey(Long id);
 
-    public void saveOrUpdate(Recensione piatto);
+    public void saveOrUpdate(Recensione recensione);
 
-    public void delete(Recensione piatto);
+    public void delete(Recensione recensione);
 }

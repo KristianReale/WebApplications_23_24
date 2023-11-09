@@ -1,8 +1,11 @@
 package it.unical.informatica.webapp24.recensioniristoranti.persistenza;
 
 import it.unical.informatica.webapp24.recensioniristoranti.persistenza.dao.PiattoDao;
+import it.unical.informatica.webapp24.recensioniristoranti.persistenza.dao.RecensioneDao;
+import it.unical.informatica.webapp24.recensioniristoranti.persistenza.dao.RistoranteDao;
 import it.unical.informatica.webapp24.recensioniristoranti.persistenza.dao.UtenteDao;
 import it.unical.informatica.webapp24.recensioniristoranti.persistenza.dao.postgres.PiattoDaoPostgres;
+import it.unical.informatica.webapp24.recensioniristoranti.persistenza.dao.postgres.RecensioneDaoPostgres;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -42,7 +45,14 @@ public class DBManager {
         return null;
     }
 
-    public RistoranteDao getUtenteDao(){}
+    public RistoranteDao getRistoranteDao(){
+        return null;
+    }
+
+
+    public RecensioneDao getRecensioneDao(){
+        return new RecensioneDaoPostgres(getConnection());
+    }
     /*
     public static void main(String[] args) {
         Connection con = DBManager.getInstance().getConnection();

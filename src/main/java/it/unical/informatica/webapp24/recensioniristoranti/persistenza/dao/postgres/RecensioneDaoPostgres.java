@@ -45,12 +45,12 @@ public class RecensioneDaoPostgres implements RecensioneDao {
                                 .findByPrimaryKey(username);
                 rec.setScrittaDa(scrittaDa);
 
-                Integer ristorante = rs.getInt("ristorante");
-                Ristorante ristorante = DBManager.getInstance().getRistoranteDao
-                        .findByPrimaryKey(username);
+                Integer ristId = rs.getInt("ristorante");
+                Ristorante ristorante = DBManager.getInstance().getRistoranteDao()
+                        .findByPrimaryKey(ristId);
                 rec.setRistorante(ristorante);
 
-                
+
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
