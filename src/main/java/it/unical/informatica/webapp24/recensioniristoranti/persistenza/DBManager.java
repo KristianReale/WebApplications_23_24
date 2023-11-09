@@ -1,5 +1,7 @@
 package it.unical.informatica.webapp24.recensioniristoranti.persistenza;
 
+import java.sql.Connection;
+
 public class DBManager {
     private static DBManager instance = null;
 
