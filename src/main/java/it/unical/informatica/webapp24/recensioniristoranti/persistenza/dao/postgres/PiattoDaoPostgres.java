@@ -9,6 +9,7 @@ import it.unical.informatica.webapp24.recensioniristoranti.persistenza.model.Ute
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class PiattoDaoPostgres implements PiattoDao {
@@ -20,26 +21,52 @@ public class PiattoDaoPostgres implements PiattoDao {
 
     @Override
     public List<Piatto> findAll() {
-        List<Piatto> piatti = new ArrayList<Piatto>();
+        List<Piatto> piattiLista = new ArrayList<Piatto>();
         try {
             Statement st = connection.createStatement();
-            String query = "select * from piatto";
+            //String query = "select * from piatto";
+            HashMap<Piatto, ArrayList<Ristorante>> piatti =
+                        new HashMap<Piatto, ArrayList<Ristorante>>();
+
+            String query = "select p.id as p_id, p.nome as p_nome, " +
+                    "p.prezzo as p_prezzo, r.id as r_id  from " +
+                    "piatto p, serve s, ristorante r " +
+                    "where " +
+                    "   s.piatto = p.id and s.ristorante = r.id";
+
             ResultSet rs = st.executeQuery(query);
             while (rs.next()){
+                Long idPiatto = rs.getLong("p_id");
+
                 Piatto piatto = new Piatto();
-                piatto.setId(rs.getLong("id"));
-                piatto.setNome(rs.getString("nome"));
-                piatto.setPrezzo(rs.getDouble("prezzo"));
-                //todo
-                //piatto.setRistoranti();
-                piatti.add(piatto);
+                piatto.setId(idPiatto);
+                piatto.setNome(rs.getString("p_nome"));
+                piatto.setPrezzo(rs.getDouble("p_prezzo"));
+
+                ArrayList<Ristorante> ristoranti;
+                if (!piatti.containsKey(piatto)){
+                    ristoranti = new ArrayList<Ristorante>();
+                    piatti.put(piatto, ristoranti);
+                }else{
+                    ristoranti = piatti.get(piatto);
+                }
+
+                Integer ristId = rs.getInt("r_id");
+                Ristorante r = DBManager.getInstance().getRistoranteDao().findByPrimaryKey(ristId);
+                ristoranti.add(r);
             }
+
+            for (Piatto p : piatti.keySet()){
+                p.setRistoranti(piatti.get(p));
+                piattiLista.add(p);
+            }
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-
-        return piatti;
+        return piattiLista;
     }
 
     @Override
