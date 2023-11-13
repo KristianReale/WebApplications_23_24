@@ -7,6 +7,11 @@ import java.util.List;
 public interface PiattoDao {
     public List<Piatto> findAll();
 
+    public List<Piatto> findAllNonEfficiente();
+
+    public List<Piatto> findAllLazy();
+
+
     public Piatto findByPrimaryKey(Long id);
 
     public void saveOrUpdate(Piatto piatto);

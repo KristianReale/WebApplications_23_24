@@ -20,15 +20,37 @@ public class PiattoDaoPostgres implements PiattoDao {
     }
 
 
-    public List<Piatto> findAllAlternativo() {
+    @Override
+    public List<Piatto> findAllNonEfficiente() {
         List<Piatto> piattiLista = new ArrayList<Piatto>();
         try {
             Statement st = connection.createStatement();
-            String query = "select id from piatto";
+            String query = "select * from piatto";
 
             ResultSet rs = st.executeQuery(query);
             while (rs.next()){
-                Piatto piatto = findByPrimaryKey(rs.getLong("id");)
+                Piatto piatto = findByPrimaryKey(rs.getLong("id"));
+                piattiLista.add(piatto);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return piattiLista;
+    }
+
+    public List<Piatto> findAllLazy() {
+        List<Piatto> piattiLista = new ArrayList<Piatto>();
+        try {
+            Statement st = connection.createStatement();
+            String query = "select * from piatto";
+
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()){
+                Piatto piatto = new PiattoProxy(connection);
+                piatto.setId(rs.getLong("id"));
+                piatto.setNome(rs.getString("nome"));
+                piatto.setPrezzo(rs.getDouble("prezzo"));
                 piattiLista.add(piatto);
             }
         } catch (SQLException e) {
@@ -107,6 +129,9 @@ public class PiattoDaoPostgres implements PiattoDao {
                     piatto.setPrezzo(rs.getDouble("p_prezzo"));
 
                 }
+
+
+
                 Integer ristId = rs.getInt("r_id");
                 Ristorante r = DBManager.getInstance().getRistoranteDao().findByPrimaryKey(ristId);
                 piatto.addRistorante(r);

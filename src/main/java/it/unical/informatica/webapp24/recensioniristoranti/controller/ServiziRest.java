@@ -38,7 +38,9 @@ public class ServiziRest {
     @GetMapping("/dammiPiatti")
     public List<Piatto> getPiatti(){
         PiattoDao dao = DBManager.getInstance().getPiattoDao();
-        List<Piatto> piatti = dao.findAll();
+        List<Piatto> piatti = dao.findAllLazy();
+        Piatto primoPiatto = piatti.get(0);
+        System.out.println(primoPiatto.getRistoranti().get(0).getNome());
         return piatti;
     }
 
