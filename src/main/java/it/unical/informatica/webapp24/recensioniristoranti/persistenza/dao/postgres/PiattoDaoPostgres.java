@@ -19,6 +19,24 @@ public class PiattoDaoPostgres implements PiattoDao {
         this.connection = connection;
     }
 
+
+    public List<Piatto> findAllAlternativo() {
+        List<Piatto> piattiLista = new ArrayList<Piatto>();
+        try {
+            Statement st = connection.createStatement();
+            String query = "select id from piatto";
+
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next()){
+                Piatto piatto = findByPrimaryKey(rs.getLong("id");)
+                piattiLista.add(piatto);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return piattiLista;
+    }
     @Override
     public List<Piatto> findAll() {
         List<Piatto> piattiLista = new ArrayList<Piatto>();
