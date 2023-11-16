@@ -2,6 +2,7 @@ package it.unical.informatica.webapp24.recensioniristoranti.controller.servlet;
 
 import it.unical.informatica.webapp24.recensioniristoranti.persistenza.DBManager;
 import it.unical.informatica.webapp24.recensioniristoranti.persistenza.model.Ristorante;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -20,6 +21,10 @@ public class RistorantiServlet extends HttpServlet {
         for (Ristorante r : ristoranti){
             System.out.println(r.getNome());
         }
-        resp.getWriter().println("<h1>Funziona</h1>");
+        req.setAttribute("lista_ristoranti", ristoranti);
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/views/ristoranti.html");
+        dispatcher.forward(req, resp);
+        //resp.getWriter().println("<h1>Funziona</h1>");
     }
 }
