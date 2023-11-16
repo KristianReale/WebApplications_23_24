@@ -29,8 +29,12 @@ public class ServiziRest {
             System.out.println(r.getNome());
             System.out.println(r.getDescrizione());
             System.out.println(r.getUbicazione());
+            DBManager.getInstance().getRistoranteDao().saveOrUpdate(r);
         }
+
         return "OK";
+
+
         //altrimenti
         // return "Errore: ....";
     }
