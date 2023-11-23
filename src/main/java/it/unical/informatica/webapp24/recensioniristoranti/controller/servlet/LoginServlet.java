@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
@@ -27,7 +28,9 @@ public class LoginServlet extends HttpServlet {
             if (password.equals(utente.getPassword())){
                 System.out.println("La password corrisponde");
                 autorizzato = true;
-
+                HttpSession session = req.getSession();
+                System.out.println("ID sessione: " + session.getId());
+                session.setAttribute("user", utente);
                 resp.sendRedirect("/");
             }else{
                 System.out.println("La password non corrisponde");
