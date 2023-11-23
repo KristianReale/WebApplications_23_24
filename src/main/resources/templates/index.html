@@ -9,7 +9,9 @@
 <body>
     <header>
 
-        jj
+        <div th:if="${user != null}">
+            Benvenuto <span th:text="${user.nome}"></span> <span th:text="${user.cognome}"></span>
+        </div>
         <div id="unDiv">
             <img id="logo" class="round" src="images/ristorante.png" width="25%" />
         </div>
@@ -25,9 +27,10 @@
                 </li>
                 <li><a href="/ristoranti/dammiRistoranti">Ristoranti</a></li>
                 <!-- if -->
-                <li><a href="/login.html">Login</a></li>
+
+                <li><a th:if="${user == null}" href="/login.html">Login</a></li>
                 <!-- else -->
-                <li><a href="/logout.html">Logout</a></li>
+                <li><a th:unless="${user == null}" href="/doLogout">Logout</a></li>
 
                 <li>Registrati</li>
             </ul>
