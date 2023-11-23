@@ -2,6 +2,7 @@ package it.unical.informatica.webapp24.recensioniristoranti.controller.servlet;
 
 import it.unical.informatica.webapp24.recensioniristoranti.persistenza.DBManager;
 import it.unical.informatica.webapp24.recensioniristoranti.persistenza.model.Utente;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,14 +18,24 @@ public class LoginServlet extends HttpServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         Utente utente = DBManager.getInstance().getUtenteDao().findByPrimaryKey(username);
+        boolean autorizzato;
         if (utente == null){
             System.out.println("Non sei autorizzato");
+            autorizzato = false;
         }else{
             System.out.println("Utente " + utente.getUsername() + " trovato");
             if (password.equals(utente.getPassword())){
                 System.out.println("La password corrisponde");
+                autorizzato = true;
+
+                resp.sendRedirect("/");
             }else{
                 System.out.println("La password non corrisponde");
+                autorizzato = false;
+            }
+            if (!autorizzato){
+                RequestDispatcher dispatcher = req.getRequestDispatcher("/views/nonAutorizzato.html");
+                dispatcher.forward(req, resp);
             }
         }
     }
