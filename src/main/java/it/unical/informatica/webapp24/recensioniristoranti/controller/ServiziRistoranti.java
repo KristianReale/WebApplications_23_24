@@ -19,18 +19,18 @@ public class ServiziRistoranti {
         System.out.println(auth);
         String token = auth.substring("Basic ".length());
         System.out.println(token);
-        System.out.println(Auth.decodificaBase64(token));
-        String credenziali= Auth.decodificaBase64(token);
-        String [] creds = credenziali.split(":");
-        String username = creds[0];
-        String password = creds[1];
-        Utente utente = DBManager.getInstance().getUtenteDao().findByPrimaryKey(username);
-        if (utente != null){
-            if (utente.getPassword().equals(password)){
+        //System.out.println(Auth.decodificaBase64(token));
+        //String credenziali= Auth.decodificaBase64(token);
+        //String [] creds = credenziali.split(":");
+        //String username = creds[0];
+        //String password = creds[1];
+        //Utente utente = DBManager.getInstance().getUtenteDao().findByPrimaryKey(username);
+        //if (utente != null){
+        //    if (utente.getPassword().equals(password)){
                 List<Ristorante> migliori = DBManager.getInstance().getRistoranteDao().findAll();
                 return migliori;
-            }
-        }
-        return null;
+        //    }
+        //}
+        //return null;
     }
 }
