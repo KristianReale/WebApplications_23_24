@@ -38,7 +38,7 @@ public class RecensioneDaoPostgres implements RecensioneDao {
                 rec.setTitolo(rs.getString("titolo"));
                 rec.setTesto(rs.getString("testo"));
                 rec.setNumeroMiPiace(rs.getInt("numero_mipiace"));
-                rec.setNumeroNonMiPiace(rs.getInt("numero_minonpiace"));
+                rec.setNumeroNonMiPiace(rs.getInt("numero_nonmipiace"));
 
                 String username = rs.getString("scritta_da");
                 Utente scrittaDa = DBManager.getInstance().getUtenteDao()

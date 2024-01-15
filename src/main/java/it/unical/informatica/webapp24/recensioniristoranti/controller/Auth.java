@@ -57,9 +57,7 @@ public class Auth {
 
     @PostMapping("/isAuthenticated")
     public boolean isAuthenticated(HttpServletRequest req){
-        System.out.println("Chiama");
         String auth = req.getHeader("Authorization");
-        System.out.println(auth);
         if (auth != null){
             String token = auth.substring("Basic ".length());
             return getUserByToken(token) != null;
@@ -68,7 +66,7 @@ public class Auth {
         }
     }
 
-    private Utente getUserByToken(String token){
+    public static Utente getUserByToken(String token){
         if (token != null) {
             String decod = decodificaBase64(token);
             String username = decod.split(":")[0];
@@ -83,11 +81,11 @@ public class Auth {
         return null;
     }
 
-    private String codificaBase64(String value){
+    private static String codificaBase64(String value){
         return Base64.getEncoder().encodeToString(value.getBytes());
     }
 
-    private String decodificaBase64(String value){
+    private static String decodificaBase64(String value){
         return new String(Base64.getDecoder().decode(value.getBytes()));
     }
 }
